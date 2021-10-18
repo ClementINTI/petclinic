@@ -21,7 +21,7 @@ jobs:
         known_hosts: ${{ secrets.CDA_EC2_HOST }}
         if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
     - name: authentification
-      run: rsync ./foo/ user@remote:bar/
+      run: rsync id_rsa ${{ secrets.CDA_EC2_HOST }}
     - name: blah    
       run: |
         scp ./target/spring-petclinic-2.5.0-SNAPSHOT.jar ${{ secrets.CDA_EC2_HOST }}:petclinic.jar
